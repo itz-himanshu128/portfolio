@@ -200,7 +200,7 @@ function Home() {
                 >
                   <img src={p.img} alt={p.title} className="w-full h-full object-cover" loading="lazy" />
                 </motion.div>
-              </Link>
+              </div>
             </motion.li>
           ))}
         </ul>
