@@ -4,6 +4,9 @@ import { PageTransition } from "@/components/PageTransition";
 import wisecheck from "@/assets/project-wisecheck.jpg";
 import ims from "@/assets/project-ims.jpg";
 import tracker from "@/assets/project-tracker.jpg";
+import wisecheckLanding from "@/assets/wisecheck-landing.png";
+import wisecheckDashboard from "@/assets/wisecheck-dashboard.png";
+import wisecheckBudget from "@/assets/wisecheck-budget.png";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -21,7 +24,8 @@ const projects = [
     sub: "Expense tracking application",
     year: "2026",
     stack: ["Next.js", "PostgreSQL", "Supabase", "OAuth"],
-    img: wisecheck,
+    img: wisecheckLanding,
+    images: [wisecheckDashboard, wisecheckBudget],
     desc: "A secure, scalable expense tracker with OAuth, JSONB-driven flexible categories, and PostgreSQL Row-Level Security to keep every user's financial data isolated.",
     links: {
       github: "https://github.com/itz-himanshu128/Wisecheck---an-expense-tracker-application",
@@ -89,9 +93,17 @@ function Work() {
                   {p.year}
                 </div>
               </div>
-              {/* Placeholder slot for additional images */}
-              <div className="mt-4 grid grid-cols-3 gap-4">
-                {[0, 1, 2].map((s) => (
+              {/* Project gallery */}
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                {(p as any).images?.map((img: string, idx: number) => (
+                  <div
+                    key={idx}
+                    className="aspect-[4/3] rounded-xl border border-border bg-card overflow-hidden"
+                  >
+                    <img src={img} alt={`${p.title} screen ${idx + 1}`} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+                {!(p as any).images && [0, 1].map((s) => (
                   <div
                     key={s}
                     className="aspect-[4/3] rounded-xl border border-dashed border-border/60 bg-card/40 grid place-items-center text-[10px] uppercase tracking-widest text-muted-foreground/60"

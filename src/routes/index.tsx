@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 import { Reveal } from "@/components/Reveal";
-import wisecheck from "@/assets/project-wisecheck.jpg";
+import wisecheck from "@/assets/wisecheck-landing.png";
 import ims from "@/assets/project-ims.jpg";
 import tracker from "@/assets/project-tracker.jpg";
 
